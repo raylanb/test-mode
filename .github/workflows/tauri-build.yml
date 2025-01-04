@@ -85,7 +85,7 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses
 
-     - name: Install Android NDK
+      - name: Install Android NDK
         run: sdkmanager --install "ndk;25.2.9519653"
         env:
           ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
