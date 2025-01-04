@@ -85,11 +85,17 @@ jobs:
       - name: Accept licenses
         run: yes | sdkmanager --licenses
 
-      - name: Install Android NDK
+     - name: Install Android NDK
         run: sdkmanager --install "ndk;25.2.9519653"
+        env:
+          ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
 
       - name: Initialize Android project
         run: npm run tauri android dev
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
       - name: Build Android
         run: npm run tauri android build
