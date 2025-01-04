@@ -112,7 +112,8 @@ jobs:
 
       - name: Build Android
         run: |
-          npm run tauri android build  --target aarch64-linux-android
+          rustup target add aarch64-linux-android || exit 1
+          npm run tauri android build || exit 1
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
