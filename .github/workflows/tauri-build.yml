@@ -86,6 +86,9 @@ jobs:
       - name: Install Android NDK
         run: sdkmanager --install "ndk;25.2.9519653"
 
+      - name: Initialize Android project
+        run: npx @tauri-apps/cli android init
+
       - name: Build Android
         run: npm run tauri android build
         env:
