@@ -61,6 +61,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 确保获取完整的提交历史
 
       - name: Setup JDK
         uses: actions/setup-java@v3
@@ -93,6 +95,7 @@ jobs:
         run: npm run tauri android build
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_SDK_ROOT: ${{ env.ANDROID_SDK_ROOT }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
           JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
