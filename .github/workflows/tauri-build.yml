@@ -94,8 +94,25 @@ jobs:
           ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
           NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
 
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: aarch64-linux-android
+          override: true
+
+      - name: Initialize Tauri Android
+        run: |
+          npm run tauri android init
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
+          NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+
       - name: Build Android
-        run: npm run tauri android build
+        run: |
+          npm run tauri android build
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
