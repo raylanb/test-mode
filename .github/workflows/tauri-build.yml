@@ -89,13 +89,12 @@ jobs:
         run: sdkmanager --install "ndk;25.2.9519653"
 
       - name: Initialize Android project
-        run: npx @tauri-apps/cli android init
+        run: npm run tauri android dev
 
       - name: Build Android
         run: npm run tauri android build
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
-          ANDROID_SDK_ROOT: ${{ env.ANDROID_SDK_ROOT }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
           JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
