@@ -101,14 +101,14 @@ jobs:
           target: aarch64-linux-android
           override: true
 
-      # - name: Initialize Tauri Android
-      #   run: |
-      #     npm run tauri android init
-      #   env:
-      #     ANDROID_HOME: ${{ env.ANDROID_HOME }}
-      #     ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
-      #     NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
-      #     JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+      - name: Initialize Tauri Android
+        run: |
+          npm run tauri android init
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
+          NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
 
       - name: setup Android signing
         run: |
