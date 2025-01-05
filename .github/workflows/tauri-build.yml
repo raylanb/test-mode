@@ -130,7 +130,7 @@ jobs:
           
       - name: Build Android
         run: |
-          rustup target add ${{ matrix.target }} || exit 1
+          # rustup target add ${{ matrix.target }} || exit 1
           if [ "${{ matrix.universal }}" = "true" ]; then
             npm run tauri android build -- --target universal || exit 1
           else
