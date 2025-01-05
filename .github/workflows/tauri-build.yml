@@ -60,16 +60,6 @@ jobs:
           path: src-tauri/target/${{ matrix.target }}/release/bundle
 
   android:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - target: aarch64
-            abi: arm64-v8a
-            universal: false
-          - target: armv7
-            abi: armeabi-v7a
-            universal: true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -130,12 +120,9 @@ jobs:
           
       - name: Build Android
         run: |
-          # rustup target add ${{ matrix.target }} || exit 1
-          if [ "${{ matrix.universal }}" = "true" ]; then
-            npm run tauri android build -- --target universal || exit 1
-          else
-            npm run tauri android build -- --target ${{ matrix.target }} || exit 1
-          fi
+          rustup target add aarch64-linux-android || exit 1
+          npm run tauri android build || exit 1
+          npm run tauri android build -- --target aarch64 || exit 1
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
