@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "test-mode",
+  "productName": "testmode",
   "version": "0.1.0",
   "identifier": "com.testmode.app",
   "build": {
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "test-mode",
+        "title": "testmode",
         "width": 800,
         "height": 600
       }
@@ -32,7 +32,7 @@
       "icons/icon.ico"
     ],
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "minSdkVersion": 24
     }
   }
