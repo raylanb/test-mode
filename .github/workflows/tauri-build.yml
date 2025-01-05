@@ -103,8 +103,8 @@ jobs:
 
       - name: Initialize Tauri Android
         run: |
-          cargo build --features mobile --target aarch64-linux-android --release || exit 1
-          npm run tauri android init || exit 1
+          cd src-tauri && cargo build --features mobile --target aarch64-linux-android --release || exit 1
+          cd .. && npm run tauri android init || exit 1
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
