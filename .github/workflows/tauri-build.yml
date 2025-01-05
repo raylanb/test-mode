@@ -146,5 +146,12 @@ jobs:
           name: Release v${{ github.run_number }}
           body: Auto-generated release
           files: |
-            artifacts/tauri-build-*/**/*
-            artifacts/android-build/**/*
+            artifacts/tauri-build-*/**/*.AppImage
+            artifacts/tauri-build-*/**/*.deb
+            artifacts/tauri-build-*/**/*.rpm
+            artifacts/tauri-build-*/**/*.app
+            artifacts/tauri-build-*/**/*.dmg
+            artifacts/tauri-build-*/**/*.msi
+            artifacts/tauri-build-*/**/*.exe
+            artifacts/android-build/**/*.apk
+            artifacts/android-build/**/*.aab
